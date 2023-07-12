@@ -1,12 +1,12 @@
-function Select({ ...props }) {
-  const options = props.optionsData.map((option) => (
+function Select({ ...props}) {
+  const options = props.optionsData.map((option: any) => (
     <option key={option.name}>{option.name}</option>
   ));
 
   return (
-    <select className={props.classname}>
+     <select className={props.classname}>
       {options}
-    </select>
+  </select>
   );
 }
 

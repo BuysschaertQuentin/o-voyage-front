@@ -6,10 +6,12 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 type ListItem = {
   name: string;
   location: string;
-  price: number;
-  members: number;
+  price: any;
+  members: any;
   time: string;
   date: string;
+  categoryId: any;
+  travelId: any;
 };
 
 function AddActivitiesTable() {
@@ -104,7 +106,7 @@ function AddActivitiesTable() {
                 required
                 id="members"
                 value={members}
-                onChange={(e) => setMembers(Number(e.target.value))}
+                onChange={(e) => setMembers(e.target.value)}
                 className="w-full p-2 border border-darkest-300 rounded-md"
                 placeholder="Nombre de participants"
               />
@@ -137,7 +139,7 @@ function AddActivitiesTable() {
                 required
                 id="price"
                 value={price}
-                onChange={(e) => setPrice(Number(e.target.value))}
+                onChange={(e) => setPrice(e.target.value)}
                 className="w-full p-2 border border-darkest-300 rounded-md"
                 placeholder="Prix"
               />

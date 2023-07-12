@@ -16,7 +16,7 @@ const initialState: ActivityState = {
 };
 
 export interface ActivityByDate {
-  date: string;
+  date: any;
   travelId: number;
 }
 
@@ -51,7 +51,7 @@ export async function getActivityByDate(activity: ActivityByDate) {
 
 export const addActivity = createAsyncThunk(
   'activity/add-activity',
-  async (newActivity) => {
+  async (newActivity: any) => {
     const addActivityQuery = `
       mutation Mutation {
         createActivity(createActivityInput: {

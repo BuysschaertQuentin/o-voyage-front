@@ -26,7 +26,7 @@ export const setIsLogged = createAction<boolean>('user/setIsLogged');
 export const logOut = createAction('user/logOut');
 
 // Création d'un nouvel utilisateur
-export async function registerUser(newUser) {
+export async function registerUser(newUser: any) {
   const signUpQuery = `
     mutation Mutation {
       signUp(signUpInput: {
@@ -66,7 +66,7 @@ const userReducer = createReducer(initialState, (builder) => {
       state.isLogged = false;
     })
 
-    .addCase(loginSuccess, (state, action) => {
+    .addCase(loginSuccess, (state, action: any) => {
       // Récupération des tokens
       // Action.payload sert à récupérer les données envoyées par l'action
       const { accessToken, refreshToken, id } = action.payload;
@@ -81,7 +81,7 @@ const userReducer = createReducer(initialState, (builder) => {
 });
 
 // Connexion à l'API pour vérifier les identifiants
-export const loginUser = (email, password) => async (dispatch) => {
+export const loginUser = (email: any, password: any) => async (dispatch: any) => {
   try {
     const response = await client.axios.post('', {
       query: `
@@ -108,7 +108,8 @@ export const loginUser = (email, password) => async (dispatch) => {
       const { id } = data.signIn.user;
 
       // Dispatch de l'action loginSuccess pour mettre à jour le state de l'utilisateur
-      dispatch(loginSuccess({ accessToken, refreshToken, id }));
+      dispatch(loginSuccess());
+      // dispatch(loginSuccess({ accessToken, refreshToken, id }));
       return data;
     }
     alert('Identifiants incorrects');

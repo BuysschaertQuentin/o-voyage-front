@@ -20,7 +20,7 @@ function decodeToken(token: string) {
   }
 }
 
-function isValidToken(token: JwtToken) {
+function isValidToken(token: any) {
   const currentTime = Math.floor(Date.now() / 1000); // convertir en secondes
   const expirationTime = token.exp;
   const fifteenDaysInSeconds = 15 * 24 * 60 * 60; // 15 jours en secondes
@@ -35,7 +35,7 @@ function setTokens(tokens: Tokens) {
   Cookies.set('refreshToken', tokens.refreshToken);
 }
 
-function getTokenFromCookies() {
+function getTokenFromCookies() : any {
   const accessToken = Cookies.get('accessToken');
   const refreshToken = Cookies.get('refreshToken');
   if (accessToken && refreshToken) {
@@ -52,7 +52,8 @@ async function getToken() {
   if (accessToken) {
     const token = decodeToken(accessToken);
     if (isValidToken(token!)) {
-      store.dispatch(loginSuccess({ accessToken, refreshToken, id: token.id }));
+      store.dispatch(loginSuccess());
+      // store.dispatch(loginSuccess({ accessToken, refreshToken, id: token.id }));
       client.setAutorization(accessToken);
     }
     return accessToken;

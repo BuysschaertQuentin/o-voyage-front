@@ -29,11 +29,11 @@ function TravelForm() {
     setArrivalDate(event.target.value);
   }
 
-  function handlenumberOfTravelersChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setNumberOfTravelers(event.target.value);
+  function handlenumberOfTravelersChange(event: any) {
+    setNumberOfTravelers(parseInt(event.target.value));
   }
 
-  function handleCountryClick(event) {
+  function handleCountryClick(event: any) {
     setCountrySearch(event.target.innerText);
   }
 

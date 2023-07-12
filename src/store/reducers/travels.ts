@@ -46,7 +46,7 @@ const initialState: TravelsState = {
 
 export const createTravel = createAsyncThunk(
   'travels/create-travel',
-  async (newTravel) => {
+  async (newTravel: any) => {
     const response = await client.axios.post('', {
       query: `mutation Mutation {
         createTravel(createTravelInput: {

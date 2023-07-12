@@ -28,7 +28,7 @@ function GeneralTravelMain() {
           {' '}
           {/* récupérer les données de la base de données  pour faire le nombre de bulles relatives au activités dans l'ordre d'arrivée */}
           {activities && activities.length > 0 ? (
-            activities.map((activity) => (
+            activities.map((activity: any) => (
               <div
                 key={activity.id}
                 className="grid h-20 card bg-lightest-400 rounded-box place-items-center m-1"
@@ -52,7 +52,7 @@ function GeneralTravelMain() {
           {' '}
           {/* récupérer les données de la base de données  pour faire le nombre de bulles relatives aux prochaines étapes (itinéraires) du voyage */}
           {activities && activities.length > 0
-            ? activities.map((activity) => (
+            ? activities.map((activity: any) => (
                 <div
                   key={activity.id}
                   className="grid h-20 card bg-lightest-400 rounded-box place-items-center m-1"

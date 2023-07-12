@@ -6,7 +6,7 @@ import { NavLink, useRouteLoaderData } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { logOut, setIsLogged } from '../../../store/reducers/user';
 
-function classNames(...classes) {
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
@@ -144,7 +144,7 @@ function Header() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
+              {navigation.map((item: any) => (
                 <Disclosure.Button
                   key={item.name}
                   as="a"

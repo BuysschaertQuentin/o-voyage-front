@@ -62,7 +62,7 @@ function SignUp() {
             setConfirmPassword('');
           }
         }
-        catch(error){
+        catch(error: any){
           setMessageContent(error.response.data.errors[0].message);
         };
       }

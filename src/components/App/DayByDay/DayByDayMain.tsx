@@ -6,7 +6,7 @@ import AddActivitiesTable from './ButtonAddActivitiesList';
 import { getActivityByDate } from '../../../store/reducers/activities';
 
 function DayByDayMain() {
-  const [activities, setActivities] = useState();
+  const [activities, setActivities] = useState([]);
   const dispatch = useAppDispatch();
   const voyageId = Number(useParams().voyage);
   const date = useParams().jour;
@@ -19,9 +19,9 @@ function DayByDayMain() {
     });
   }, [dispatch, voyageId, date]);
 
-  function formatTravelDate(date) {
+  function formatTravelDate(dateTravel: any) {
     dayjs.locale('fr');
-    const parsedDate = dayjs(date, 'YYYY-MM-DD');
+    const parsedDate = dayjs(dateTravel, 'YYYY-MM-DD');
     const formattedDate = parsedDate.format('DD MMMM YYYY');
     return formattedDate;
   }
@@ -39,7 +39,7 @@ function DayByDayMain() {
           <div className="flex flex-auto">
             {/* Afficher les activités */}
             {activities && activities.length > 0 ? (
-              activities.map((activity) => (
+              activities.map((activity: any) => (
                 <div key={activity.id} className="flex flex-auto">
                   <div className="relative bg-lightest-200 py-6 px-6 rounded-md w-64 my-4 mx-4 shadow-xl">
                     <div className=" text-white flex items-center absolute rounded-2xl py-4 px-4 shadow-xl bg-darkest left-4 -top-6">

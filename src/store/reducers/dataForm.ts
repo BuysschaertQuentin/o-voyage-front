@@ -8,7 +8,7 @@ export interface RecapFormProps {
   budget: string;
 }
 
-export async function getRecapForm(id: number) {
+export async function getRecapForm(id: any) {
   try {
     const response = await client.axios.post('', {
       query: `query Query {
@@ -27,6 +27,8 @@ export async function getRecapForm(id: number) {
               `,
     });
     return response.data.data.travel;
-
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    throw new Error('Une erreur est survenu');
+  }
 }
